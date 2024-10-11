@@ -68,7 +68,7 @@ const Elections = () => {
        <h1 className='text-3xl my-8 text-center text-white font-semibold'>Admin Dashboard</h1>
       <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 lg:px-16 px-3 pb-8'>
         { elections.map((item,index)=>(
-          <div className='rounded-xl text-white text-sm' key={index}>
+          <div className='rounded-xl text-white text-sm bg-[#5E00B2]' key={index} >
             <div>
               <Image src={item.image} width={100} height={100} className='w-full object-cover rounded-t-xl' alt='ballot'/>
             </div>
@@ -78,24 +78,24 @@ const Elections = () => {
               <div className='w-full flex items-center justify-around'>
                 {/* <Badge className='rounded-full'>{item.status}</Badge> */}
                 {(() => {
-                  let badgeVariant;
+                  // let badgeVariant;
                   let badgeText;
 
                   switch (item.status) {
                     case 'Ongoing':
-                      badgeVariant = 'default';
+                      // badgeVariant = 'default';
                       badgeText = 'Ongoing';
                       break;
                     case 'Upcoming':
-                      badgeVariant = 'secondary';
+                      // badgeVariant = 'secondary';
                       badgeText = 'Pending';
                       break;
                     case 'Closed':
-                      badgeVariant = 'destructive';
+                      // badgeVariant = 'destructive';
                       badgeText = 'Closed';
                       break;
                     default:
-                      badgeVariant = 'default';
+                      // badgeVariant = 'default';
                       badgeText = 'Upcoming';
                   }
 
