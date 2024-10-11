@@ -1,19 +1,8 @@
 import type { Metadata } from "next";
 import "@coinbase/onchainkit/styles.css";
-import localFont from "next/font/local";
 import "./globals.css";
 import OnchainProviders from "@/providers/OnchainProviders";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { PrimeReactProvider } from "primereact/api";
 
 export const metadata: Metadata = {
   title: "ChainBallot",
@@ -27,8 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <OnchainProviders>{children}</OnchainProviders>
+      <body >
+        <OnchainProviders>
+          <PrimeReactProvider value={{ unstyled: true }}>
+          {children}
+          </PrimeReactProvider>
+         </OnchainProviders>
       </body>
     </html>
   );

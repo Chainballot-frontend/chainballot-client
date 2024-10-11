@@ -24,10 +24,10 @@ const Mission = () => {
         </div>
       </div>
       <div className=" flex flex-row gap-5 mt-10">
-      <button className=" capitalize bg-[#5E00B2] w-[16rem] text-[#fff] flex flex-row font-semibold gap-2 px-1 justify-center items-center rounded-lg py-3 ">
+        <button className=" capitalize bg-[#5E00B2] w-[16rem] text-[#fff] flex flex-row font-semibold gap-2 px-1 justify-center items-center rounded-lg py-3 ">
           START VOTING
         </button>
-      <button className="capitalize bg-white text-[#5E00B2] w-[16rem] font-semibold  flex flex-row  gap-2 px-[1.5] items-center justify-center rounded-lg py-3 ">
+        <button className="capitalize bg-white text-[#5E00B2] w-[16rem] font-semibold  flex flex-row  gap-2 px-[1.5] items-center justify-center rounded-lg py-3 ">
           CREATE NEW ELECTION
           <Image
             src={"/Icons/plus.svg"}
@@ -36,7 +36,6 @@ const Mission = () => {
             alt="Plus sign"
           />
         </button>
-       
       </div>
     </div>
   );
