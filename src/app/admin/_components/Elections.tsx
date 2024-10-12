@@ -3,6 +3,8 @@ import Image from "next/image";
 import { elections } from "@/Data/Election";
 import { Badge } from "primereact/badge";
 
+type BadgeSeverity = "success" | "warning" | "danger" | "info" | "secondary" | "contrast";
+
 const Elections = () => {
   return (
     <div>
@@ -31,8 +33,8 @@ const Elections = () => {
                 
                  
                  {(() => {
-                  let severity;
-                  let badgeText;
+                  let severity: BadgeSeverity 
+                  let badgeText: string;
 
                   switch (item.status) {
                     case 'Ongoing':
@@ -56,6 +58,8 @@ const Elections = () => {
                     <Badge className='rounded-full' severity={severity} value={badgeText}></Badge>
                   );
                 })()}
+
+               
                 <Badge className="" value={`${item.votes} Votes`} severity="secondary"></Badge>
                 <p className="">{item.eligibles} Eligible voters</p>
               </div>
