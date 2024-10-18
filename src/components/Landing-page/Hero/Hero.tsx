@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import Image from "next/image";
 import { ConnectButton } from "@/components/Wallet";
 import { useAccount } from "wagmi";
+import Link from "next/link";
 
 const Hero = () => {
   const { address } = useAccount();
@@ -32,15 +33,17 @@ const Hero = () => {
             <button className=" capitalize bg-[#5E00B2] w-[16rem] text-[#fff] flex flex-row  gap-2 px-1 justify-center items-center rounded-lg py-3 font-semibold ">
               START VOTING
             </button>
-            <button className="capitalize bg-white text-[#5E00B2] w-[16rem] font-semibold  flex flex-row  gap-2 px-[1.5] items-center justify-center rounded-lg py-3 ">
-              CREATE NEW ELECTION
-              <Image
-                src={"/Icons/plus.svg"}
-                width={23}
-                height={20}
-                alt="Plus sign"
-              />
-            </button>
+            <Link href="/election">
+              <button className="capitalize bg-white text-[#5E00B2] w-[16rem] font-semibold  flex flex-row  gap-2 px-[1.5] items-center justify-center rounded-lg py-3 ">
+                CREATE NEW ELECTION
+                <Image
+                  src={"/Icons/plus.svg"}
+                  width={23}
+                  height={20}
+                  alt="Plus sign"
+                />
+              </button>
+            </Link>
           </div>
         ) : (
           <Fragment>
