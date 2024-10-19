@@ -6,13 +6,18 @@
 .pnp.js
 .yarn/install-state.gz
 
+/package-lock.json
+/yarn.lock
+
+.env
+.prettierrc
+
 # testing
 /coverage
 
 # next.js
 /.next/
 /out/
-/.env/
 
 # production
 /build

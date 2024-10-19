@@ -1,5 +1,5 @@
 import { http, createConfig } from "wagmi";
-import { base } from "wagmi/chains";
+import { baseSepolia } from "wagmi/chains";
 import { 
    connectorsForWallets, 
   
@@ -23,16 +23,16 @@ const connectors = connectorsForWallets(
   ],
   {
     appName: "ChainBallot",
-    projectId: "iolk",
+    projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_ID as string,
   }
 );
 
 export const wagmiConfig = createConfig({
-  chains: [base],
+  chains: [baseSepolia],
   multiInjectedProviderDiscovery: false,
   connectors,
   ssr: true,
   transports: {
-    [base.id]: http(),
+    [baseSepolia.id]: http(),
   },
 });
