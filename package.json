@@ -23,7 +23,8 @@
     "primereact": "^10.8.4",
     "react": "^18",
     "react-dom": "^18",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "wagmi": "^2.12.20"
   },
   "devDependencies": {
     "@types/node": "^20",

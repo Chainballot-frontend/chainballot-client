@@ -20,9 +20,9 @@ export function ConnectButton() {
   return (
     <div className="flex justify-end ">
       <Wallet className=" text-slate-50">
-        <ConnectWallet withWalletAggregator className=" bg-[#5E00B2] text-slate-100 ">
-          <Avatar className="h-6 w-6" />
-          <Name className="" />
+        <ConnectWallet withWalletAggregator className="text-slate-100 custom-button-color">
+          <Avatar className="h-6 w-6 bg-white text-white border border-white" />
+          <Name className="text-white" />
         </ConnectWallet>
         <WalletDropdown>
           <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
@@ -31,11 +31,11 @@ export function ConnectButton() {
             <Address className={color.foregroundMuted} />
             <EthBalance />
           </Identity>
-          <WalletDropdownBasename />
+          {/* <WalletDropdownBasename /> */}
           <WalletDropdownLink icon="wallet" href="https://keys.coinbase.com">
             Wallet
           </WalletDropdownLink>
-          <WalletDropdownFundLink />
+          {/* <WalletDropdownFundLink /> */}
           <WalletDropdownDisconnect />
         </WalletDropdown>
       </Wallet>
