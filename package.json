@@ -14,7 +14,10 @@
   "dependencies": {
     "@coinbase/onchainkit": "^0.33.1",
     "@fleek-platform/cli": "^2.9.1",
+    "axios": "^1.7.7",
+    "formik": "^2.4.6",
     "json": "^11.0.0",
+    "lucide-react": "^0.453.0",
     "next": "14.2.8",
     "primeicons": "^7.0.0",
     "primereact": "^10.8.4",

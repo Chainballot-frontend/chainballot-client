@@ -26,4 +26,3 @@ export default function RootLayout({
     </html>
   );
 }
-// Smart Wallet 10/9/2024
