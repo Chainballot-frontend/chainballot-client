@@ -1,13 +1,14 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React, { useRef, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
-import { Undo2 } from "lucide-react";
 import axios, { AxiosError } from "axios";
 import { useAccount } from "wagmi";
+import {ProgressSpinner} from 'primereact/progressspinner'
+import { Toast } from 'primereact/toast';
+        
+
 
 type ElectionData = {
     title: string;
@@ -35,6 +36,9 @@ interface ElectionApiResponse {
 
 const CreateElection: React.FC = () => {
     const { address, isConnected } = useAccount();
+    const [loading, setLoading] = useState(true);
+
+    const toast = useRef<Toast>(null)
 
     const [electionData, setElectionData] = useState<ElectionData>({
         title: "",
@@ -61,7 +65,14 @@ const CreateElection: React.FC = () => {
         if (!isConnected) {
             console.log("Wallet not connected");
             // SHOW A MODAL HERE
-            return;
+            if (toast.current) {  
+                toast.current.show({  
+                    severity: 'warn',  
+                    summary: 'Wallet Not Connected',  
+                    detail: 'Please connect your wallet to proceed.',  
+                });  
+            }  
+
         }
 
         console.log({
@@ -73,8 +84,10 @@ const CreateElection: React.FC = () => {
         });
 
         // ADD LOADING MODAL/ICON
+           
 
         try {
+            setLoading(false)
             const response = await axios.post<ElectionApiResponse>(
                 url,
                 {
@@ -96,6 +109,7 @@ const CreateElection: React.FC = () => {
             );
             if (response.data.success) {
                 console.log("Election created successfully:", response.data);
+                setLoading(false)
             }
         } catch (error) {
             const err = error as AxiosError;
@@ -109,20 +123,8 @@ const CreateElection: React.FC = () => {
     return (
         <div>
             <div className="md:w-full w-11/12 grid place-items-center pb-14">
-                {/* <div className="flex items-center justify-between md:w-11/12 w-8/12 h-20">
-                    <Link href="/">
-                        <Image
-                            src="/Images/CHAINBALLOT.svg"
-                            width={100}
-                            height={100}
-                            alt="Logo"
-                        />
-                    </Link>
-                    <Link href="/">
-                        <Undo2 />
-                    </Link>
-                </div> */}
-                <form
+            <Toast ref={toast}/>
+                              <form
                     onSubmit={createElection}
                     className="bg-white text-black h-auto w-10/12 md:p-16 p-4 rounded-2xl flex flex-col gap-8"
                 >
@@ -196,7 +198,7 @@ const CreateElection: React.FC = () => {
                             type="submit"
                             className="bg-[#5E00B2] text-white font-semibold px-12 items-center justify-center rounded-lg py-3 transition duration-300 hover:bg-opacity-80 focus:border-none focus:outline-none focus:ring-0"
                         >
-                            CREATE
+                            {loading ? <ProgressSpinner style={{ width: '20px', height: '20px' }} /> : 'Create'}
                         </Button>
                     </div>
                 </form>

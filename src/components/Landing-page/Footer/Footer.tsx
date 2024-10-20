@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 
 
@@ -34,13 +35,9 @@ const Footer = () => {
           </ul>
 
           <div className=" flex flex-row gap-2">
-            {/* <Facebook />
-            <TwitterIcon />
-            <Instagram />
-            <Linkedin />{" "} */}
-            Facebook
-            Twitter
-            Instagram
+          <Facebook/>
+          <Twitter/>
+          <Instagram/>
           </div>
         </div>
       </div>
