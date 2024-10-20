@@ -9,7 +9,7 @@ import { ConnectButton } from "@/components/Wallet";
 const Navbar = () => {
     const location = usePathname();
     return (
-        <nav className='flex flex-row justify-between p-16 pt-10 bg-transparent'>
+        <nav className="flex flex-row justify-between p-16 pt-10 bg-transparent">
             <div>
                 <Link href={"/"}>
                     <Image
@@ -36,22 +36,7 @@ const Navbar = () => {
             </div>
 
             <div>
-                {location === "/user" ? (
-                    <div className="flex flex-row justify-center items-center space-x-2 shadow-inner border border-[#5E00B2] px-1 rounded-lg py-1">
-                        <Image
-                            src="/Icons/wc-meta.svg"
-                            alt="  metamaskicon"
-                            width={30}
-                            height={30}
-                            className="inline"
-                        />
-                        <p className=" text-[#f4f0ff] text-sm">
-                            Ox70F1b...c8A8
-                        </p>
-                    </div>
-                ) : (
-                    <ConnectButton></ConnectButton>
-                )}
+                <ConnectButton></ConnectButton>
             </div>
         </nav>
     );

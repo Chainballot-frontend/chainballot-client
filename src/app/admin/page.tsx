@@ -6,7 +6,7 @@ import { Navbar } from './_components/Navbar'
 export default function page() {
   return (
    <HomeWrapper>
-    <Navbar/>
+    {/* <Navbar/> */}
     <Elections/>
    </HomeWrapper>
   )
